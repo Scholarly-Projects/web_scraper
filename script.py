@@ -42,8 +42,13 @@ with open('faculty_contacts.csv', mode='w', newline='') as file:
         profile_soup = BeautifulSoup(profile_response.content, 'html.parser')
         
         # Extract the faculty information
-        name = profile_soup.find('h2', class_='profile-heading').text.strip() if profile_soup.find('h2', class_='profile-heading') else 'N/A'
-        title = profile_soup.find('h3').text.strip() if profile_soup.find('h3') else 'N/A'
+        name_tag = profile_soup.find('h2', class_='profile-heading')
+        name = name_tag.text.strip() if name_tag else 'N/A'
+        
+        title = 'N/A'
+        if name_tag:
+            title_tag = name_tag.find_next('h3')
+            title = title_tag.text.strip() if title_tag else 'N/A'
 
         def get_bio_info(label):
             label_div = profile_soup.find(string=label)
