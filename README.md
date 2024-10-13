@@ -1,3 +1,3 @@
 # web_scraper
 
-Web scraping tool created by Andrew Weymouth for the University of Idaho to help extract contact information for liaison work, Summer 2024.
+Created to help extract contact information across multiple areas of the University of Idaho CALS directory for liaison work. _Andrew Weymouth, Summer 2024_.
